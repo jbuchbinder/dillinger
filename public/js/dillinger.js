@@ -309,7 +309,9 @@ $(function(){
         langPrefix: 'lang-'
       })
       
-      converter = marked
+      // Switch between Fountain and Markdown syntax
+      converter = fountain.parse
+      //converter = marked
       
       bindPreview()
 
