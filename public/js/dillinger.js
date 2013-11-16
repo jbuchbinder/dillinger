@@ -310,7 +310,10 @@ $(function(){
       })
       
       // Switch between Fountain and Markdown syntax
-      converter = fountain.parse
+      converter = function(i) {
+	      var o = fountain.parse(i);
+	      return o.html.title_page + o.html.script;
+      }
       //converter = marked
       
       bindPreview()
