@@ -309,8 +309,9 @@ textarea {
 }
 #preview .dialogue {
   display: inline-block;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
   font-family: monospace;
 }
 #preview .dialogue h4 {
@@ -4008,8 +4009,9 @@ a.thumbnail:hover {
 }
 #preview .dialogue {
   display: inline-block;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
   font-family: monospace;
 }
 #preview .dialogue h4 {
