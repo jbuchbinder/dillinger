@@ -103,8 +103,8 @@ exports.Dropbox = (function() {
         include_deleted    : false
       }
 
-      dboxclient.search("/", ".md", options, function(status, reply) {
-        var regex = /.*\.md$/i
+      dboxclient.search("/", ".fountain", options, function(status, reply) {
+        var regex = /.*\.fountain$/i
         	,	files = []
         	;
 
@@ -118,15 +118,7 @@ exports.Dropbox = (function() {
           }
         })
 
-        dboxclient.search("/", ".mdown", options, function(status, reply) {
-          files = files.concat(reply)
-
-          dboxclient.search("/", ".markdown", options, function(status, reply) {
-            files = files.concat(reply)
-            return cb(status, files)
-          })
-
-        })
+        return cb(status, files)
 
       })
         
@@ -144,7 +136,7 @@ exports.Dropbox = (function() {
 
       // TODO: EXPOSE THE CORE MODULE SO WE CAN GENERATE RANDOM NAMES
 
-      var pathToMdFile = req.body.pathToMdFile || '/Dillinger/' + md.generateRandomMdFilename('md')
+      var pathToMdFile = req.body.pathToMdFile || '/Dillinger/' + md.generateRandomMdFilename('fountain')
       var contents = req.body.fileContents || 'Test Data from Dillinger.'
 
       dboxclient.put(pathToMdFile, contents, function(status, reply){

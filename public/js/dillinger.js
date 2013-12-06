@@ -975,7 +975,7 @@ $(function(){
 
     $('#cheat').
       on('click', function(){
-        window.open("https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", "_blank")
+        window.open("http://fountain.io/syntax", "_blank")
         return false
       })
 
@@ -1059,7 +1059,7 @@ $(function(){
         
         var dboxFilePath = $(this).parent('li').attr('data-file-path')
 
-        profile.current_filename = dboxFilePath.split('/').pop().replace('.md', '')
+        profile.current_filename = dboxFilePath.split('/').pop().replace('.fountain', '')
 
         Dropbox.setFilePath( dboxFilePath )
 
@@ -1098,7 +1098,7 @@ $(function(){
             // find the first text file
             do {
               file = files[i++]
-            } while (file && file.type.substr(0, 4) !== 'text' && file.name.substr(file.name.length - 3) !== '.md')
+            } while (file && file.type.substr(0, 4) !== 'text' && file.name.substr(file.name.length - 9) !== '.fountain')
 
             if (!file) return
 
@@ -1162,7 +1162,7 @@ $(function(){
     
     // Test for md file extension
     function _isMdFile(file){
-      return (/(\.md)|(\.markdown)/i).test(file)
+      return (/(\.fountain)/i).test(file)
     }
     
     // Returns an array of only md files from a tree
@@ -1492,7 +1492,7 @@ $(function(){
           dataType: 'json',
           url: '/import/googledrive',
           beforeSend: function() {
-            Notifier.showMessage('Searching for .md files')
+            Notifier.showMessage('Searching for .fountain files')
           },
           error: _errorHandler,
           success: renderSearchResults
@@ -1508,7 +1508,7 @@ $(function(){
       },
       save: function() {
         var content = encodeURIComponent(editor.getSession().getValue());
-        var postData = 'title=' + encodeURIComponent(profile.current_filename)+ '.md' +
+        var postData = 'title=' + encodeURIComponent(profile.current_filename)+ '.fountain' +
             '&content=' + content
         
          $.ajax({
@@ -1647,7 +1647,7 @@ $(function(){
       searchDropbox: function(){
 
         function _beforeSendHandler(){
-          Notifier.showMessage('Searching for .md Files')
+          Notifier.showMessage('Searching for .fountain Files')
         }
 
         function _doneHandler(a, b, response){
@@ -1671,7 +1671,7 @@ $(function(){
           }
 
           if(!resp.length){
-            Notifier.showMessage('No .md files found!')
+            Notifier.showMessage('No .fountain files found!')
           }
           else{
             // console.dir(resp)
@@ -1778,7 +1778,7 @@ $(function(){
 
         var md = encodeURIComponent( editor.getSession().getValue() )
         
-        var postData = 'pathToMdFile=' + profile.dropbox.filepath + encodeURIComponent(profile.current_filename) + '.md' + '&fileContents=' + md
+        var postData = 'pathToMdFile=' + profile.dropbox.filepath + encodeURIComponent(profile.current_filename) + '.fountain' + '&fileContents=' + md
         
         var config = {
                         type: 'POST',

@@ -78,7 +78,7 @@ var GoogleDrive = {
   save: function(tokens, fileId, title, content, callback) {
     // TODO: remove native call when googleapis support media uploads
     content = content || '';
-    title = title || 'Untitled.md';
+    title = title || 'Untitled.fountain';
 
     var boundaryTag = 'a_unique_boundary_tag';
     var body = '--' + boundaryTag + '\n' +

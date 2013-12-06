@@ -4,6 +4,7 @@ var fs = require('fs')
   , qs = require('querystring')
   // , markdown = require('node-markdown').Markdown
   , markdown = require('marked')
+  , fountain = require('../../public/js/fountain')
   // , phantomjs = require('phantomjs')
   // , child = require('child_process')
 
@@ -17,6 +18,11 @@ markdown.setOptions({
   smartypants: false
 })
 
+// Fountain syntax
+var converter = function(i) {
+  var o = fountain.parse(i);
+  return o.html.title_page + o.html.script;
+}
 
 exports.Core = (function(){
   
@@ -25,7 +31,7 @@ exports.Core = (function(){
   }
   
   function _getHtml(str){
-    return markdown(str) 
+    return converter(str) 
   }
 
   return {
@@ -38,7 +44,7 @@ exports.Core = (function(){
         }
 
       // TODO: maybe change this to user submitted filename or name of repo imported file?
-      var name = _generateRandomMdFilename('md') 
+      var name = _generateRandomMdFilename('fountain') 
       var filename = path.resolve(__dirname, '../../public/files/md/' + name )
 
       // TODO: THIS CAN BE OPTIMIZED WITH PIPING INSTEAD OF WRITING TO DISK
@@ -103,7 +109,7 @@ exports.Core = (function(){
 
         if(err){
           json_response.error = true
-          json_response.data = "Something wrong with the markdown conversion."
+          json_response.data = "Something wrong with the fountain conversion."
           console.error(err)
           res.json( json_response )
         }
