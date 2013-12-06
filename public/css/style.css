@@ -275,6 +275,59 @@ textarea {
   overflow: auto;
   vertical-align: top;
 }
+#preview {
+  font-family: monospace;
+}
+#preview h1 {
+  font-family: monospace;
+  text-align: center;
+}
+#preview p {
+  font-family: monospace;
+  font-size: 0.8em;
+  font-style: italic;
+}
+#preview p.credit {
+  text-align: center;
+}
+#preview p.authors {
+  text-align: center;
+}
+#preview p.source {
+  text-align: center;
+}
+#preview p.notes {
+  text-align: center;
+}
+#preview p.copyright {
+  text-align: center;
+}
+#preview h3 {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+#preview .dialogue {
+  display: inline-block;
+  margin-left: 2em;
+  margin-right: 2em;
+  font-family: monospace;
+}
+#preview .dialogue h4 {
+  text-align: center;
+  font-family: monospace;
+  font-weight: normal;
+  font-size: 0.8em;
+}
+#preview .dialogue p {
+  font-family: monospace;
+  font-size: 0.8em;
+  font-style: normal;
+}
+#preview .dialogue p.parenthetical {
+  text-align: center;
+  font-style: italic;
+}
 .clearfix {
   *zoom: 1;
 }
@@ -3921,6 +3974,59 @@ a.thumbnail:hover {
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+#preview {
+  font-family: monospace;
+}
+#preview h1 {
+  font-family: monospace;
+  text-align: center;
+}
+#preview p {
+  font-family: monospace;
+  font-size: 0.8em;
+  font-style: italic;
+}
+#preview p.credit {
+  text-align: center;
+}
+#preview p.authors {
+  text-align: center;
+}
+#preview p.source {
+  text-align: center;
+}
+#preview p.notes {
+  text-align: center;
+}
+#preview p.copyright {
+  text-align: center;
+}
+#preview h3 {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+#preview .dialogue {
+  display: inline-block;
+  margin-left: 2em;
+  margin-right: 2em;
+  font-family: monospace;
+}
+#preview .dialogue h4 {
+  text-align: center;
+  font-family: monospace;
+  font-weight: normal;
+  font-size: 0.8em;
+}
+#preview .dialogue p {
+  font-family: monospace;
+  font-size: 0.8em;
+  font-style: normal;
+}
+#preview .dialogue p.parenthetical {
+  text-align: center;
+  font-style: italic;
+}
 .hidden {
   display: none;
   visibility: hidden;
