@@ -282,6 +282,12 @@ textarea {
   font-family: monospace;
   text-align: center;
 }
+#preview h2 {
+  font-family: monospace;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.8em;
+}
 #preview p {
   font-family: monospace;
   font-size: 0.8em;
@@ -3982,6 +3988,12 @@ a.thumbnail:hover {
   font-family: monospace;
   text-align: center;
 }
+#preview h2 {
+  font-family: monospace;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.8em;
+}
 #preview p {
   font-family: monospace;
   font-size: 0.8em;
@@ -4767,7 +4779,7 @@ nav {
   left: 10px;
   top: 5px;
   padding-right: 15px;
-  width: 50%;
+  width: 80%;
   z-index: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
