@@ -36,6 +36,7 @@ Dillinger uses a number of open source projects to work properly:
 * [Express] - fast node.js network app framework [@tjholowaychuk]
 * [keymaster.js] - awesome keyboard handler lib by [@thomasfuchs]
 * [jQuery] - duh 
+* [Fountain.js] - for [Fountain] scriptwriting support by [@jbuchbinder]
 
 Installation
 --------------
@@ -84,4 +85,7 @@ MIT
   [jQuery]: http://jquery.com  
   [@tjholowaychuk]: http://twitter.com/tjholowaychuk
   [express]: http://expressjs.com
+  [@jbuchbinder]: http://twitter.com/jbuchbinder
+  [Fountain]: http://fountain.io/
+  [Fountain.js]: https://github.com/mattdaly/Fountain.js
   
