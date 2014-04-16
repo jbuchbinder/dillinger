@@ -58,34 +58,25 @@ mkdir -p public/files/{md,html,pdf}
 node app
 ```
 
-For Nodejitsu Deployment
-----------
-
-```sh
-npm version [ | major | minor | patch | build]
-jitsu deploy
-```
-
 
 License
 ----
 
 MIT
 
-*Free Software, Hell Yeah!*
+**Free Software, Hell Yeah!**
 
-  [john gruber]: http://daringfireball.net/
-  [@thomasfuchs]: http://twitter.com/thomasfuchs
-  [1]: http://daringfireball.net/projects/markdown/
-  [Marked]: https://github.com/chjj/marked
-  [ace editor]: http://ace.ajax.org
-  [node.js]: http://nodejs.org
-  [Twitter Bootstrap]: http://twitter.github.com/bootstrap/
-  [keymaster.js]: https://github.com/madrobby/keymaster
-  [jQuery]: http://jquery.com  
-  [@tjholowaychuk]: http://twitter.com/tjholowaychuk
-  [express]: http://expressjs.com
-  [@jbuchbinder]: http://twitter.com/jbuchbinder
-  [Fountain]: http://fountain.io/
-  [Fountain.js]: https://github.com/mattdaly/Fountain.js
-  
+[john gruber]:http://daringfireball.net/
+[@thomasfuchs]:http://twitter.com/thomasfuchs
+[1]:http://daringfireball.net/projects/markdown/
+[marked]:https://github.com/chjj/marked
+[Ace Editor]:http://ace.ajax.org
+[node.js]:http://nodejs.org
+[Twitter Bootstrap]:http://twitter.github.com/bootstrap/
+[keymaster.js]:https://github.com/madrobby/keymaster
+[jQuery]:http://jquery.com
+[@tjholowaychuk]:http://twitter.com/tjholowaychuk
+[express]:http://expressjs.com
+[@jbuchbinder]: http://twitter.com/jbuchbinder
+[Fountain]: http://fountain.io/
+[Fountain.js]: https://github.com/mattdaly/Fountain.js
