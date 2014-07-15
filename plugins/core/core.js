@@ -4,17 +4,24 @@ var fs = require('fs')
   , qs = require('querystring')
   , markdown = require('marked')
   , fountain = require('../../public/js/fountain')
-  // , phantomjs = require('phantomjs')
-  // , child = require('child_process')
+  , phantomjs = require('phantomjs')
+  , child = require('child_process')
+  , hljs = require('highlight.js');
 
 markdown.setOptions({
   gfm: true,
   tables: true,
-  breaks: false,
   pedantic: false,
-  sanitize: false,
+  sanitize: true,
   smartLists: true,
-  smartypants: false
+  smartypants: false,
+  langPrefix: 'lang-',
+  highlight: function (code, lang, etc) {
+    if (hljs.getLanguage(lang)) {
+      code = hljs.highlight(lang, code).value;
+    }
+    return code;
+  }
 })
 
 // Fountain syntax
@@ -24,9 +31,12 @@ var converter = function(i) {
 }
 
 exports.Core = (function(){
-  
-  function _generateRandomMdFilename(ext){
-    return 'dillinger_' +(new Date()).toISOString().replace(/[\.:-]/g, "_")+ '.' + ext
+
+  function _getFullHtml(name, str, style){
+    return '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' 
+      + name + '</title><style>' 
+      + ( ( style ) ? style : '' ) + '</style></head><body>\n' 
+      + markdown(str) + '\n</body></html>';
   }
   
   function _getHtml(str){
@@ -42,8 +52,7 @@ exports.Core = (function(){
         , error: false
         }
 
-      // TODO: maybe change this to user submitted filename or name of repo imported file?
-      var name = _generateRandomMdFilename('fountain') 
+      var name = req.body.name.trim() + '.fountain'
       var filename = path.resolve(__dirname, '../../public/files/md/' + name )
 
       // TODO: THIS CAN BE OPTIMIZED WITH PIPING INSTEAD OF WRITING TO DISK
@@ -98,9 +107,16 @@ exports.Core = (function(){
         , error: false
         }
 
-      var html = _getHtml(req.body.unmd)  
+      var format = req.body.formatting;
+      if ( ! format ) {
+        format = "";
+      } else {
+        format = fs.readFileSync( path.resolve(__dirname, '../../public/css/style.css') ).toString('utf-8');
+      }
 
-      var name = _generateRandomMdFilename('html') 
+      var html = _getFullHtml(req.body.name, unmd, format);
+
+      var name = req.body.name.trim() + '.html'
 
       var filename = path.resolve(__dirname, '../../public/files/html/' + name )
       
@@ -168,7 +184,7 @@ exports.Core = (function(){
       , error: false
       }
 
-      var html = _getHtml(unmd)
+      var html = _getFullHtml(req.body.name, unmd)
       var temp = path.resolve(__dirname, '../../public/files/pdf/temp.html')
 
       fs.writeFile( temp, html, 'utf8', function(err, data){
@@ -180,7 +196,7 @@ exports.Core = (function(){
           res.json( json_response )
         }
         else{
-          var name = _generateRandomMdFilename('pdf')
+          var name = req.body.name.trim() + '.pdf'
           var filename = path.resolve(__dirname, '../../public/files/pdf/' + name)
 
           var childArgs = [
